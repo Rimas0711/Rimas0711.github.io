@@ -7,25 +7,26 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Segoe UI', Arial, sans-serif; background: #ffffff; color: #1a1a1a; line-height: 1.6; scroll-behavior: smooth; }
-  nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 60px; border-bottom: 1px solid #eee; position: sticky; top: 0; background: #fff; z-index: 10; }
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 60px; border-bottom: 1px solid #eee; position: sticky; top: 0; background: #fff; z-index: 10; flex-wrap: wrap; }
   nav .logo { font-family: Georgia, serif; font-size: 1.6em; font-weight: bold; color: #1e4d8b; }
-  nav ul { list-style: none; display: flex; gap: 30px; }
+  nav ul { list-style: none; display: flex; gap: 30px; flex-wrap: wrap; }
   nav ul li a { text-decoration: none; color: #333; font-size: 0.95em; }
   nav ul li a:hover { color: #1e4d8b; }
 
   .hero { display: flex; align-items: center; justify-content: space-between; padding: 80px 60px; flex-wrap: wrap; gap: 40px; }
   .hero-text { max-width: 550px; }
   .hero-text .tag { color: #1e4d8b; font-weight: bold; letter-spacing: 1px; font-size: 0.9em; }
-  .hero-text h1 { font-family: Georgia, serif; font-size: 2.8em; margin: 15px 0; }
-  .hero-text h2 { color: #1e4d8b; font-size: 1.2em; margin-bottom: 15px; }
+  .hero-text h1 { font-family: Georgia, serif; font-size: 2.6em; margin: 15px 0; }
+  .hero-text h2 { color: #1e4d8b; font-size: 1.15em; margin-bottom: 15px; }
   .hero-text p { color: #555; margin-bottom: 25px; }
   .btn { background: #1e4d8b; color: #fff; border: none; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-right: 12px; display: inline-block; }
   .btn.outline { background: #fff; color: #1e4d8b; border: 1px solid #1e4d8b; }
-  .hero-img img { width: 320px; height: 380px; object-fit: cover; border-radius: 16px; }
+  .hero-img img { width: 300px; height: 360px; object-fit: cover; border-radius: 16px; }
 
   section { max-width: 1000px; margin: 0 auto; padding: 70px 30px; }
   .label { color: #1e4d8b; font-weight: bold; letter-spacing: 1px; font-size: 0.9em; }
   section h2.title { font-family: Georgia, serif; font-size: 2.2em; margin: 10px 0 30px; }
+  .lead-text { color: #555; max-width: 750px; margin-bottom: 20px; }
 
   .about-grid { display: flex; gap: 40px; flex-wrap: wrap; }
   .about-grid .col { flex: 1; min-width: 280px; }
@@ -33,14 +34,17 @@
   .info-card h3 { margin-bottom: 8px; }
   .info-card p { color: #555; font-size: 0.95em; }
 
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; }
-  .skill-card { border: 1px solid #eee; border-radius: 10px; padding: 20px; text-align: center; font-weight: 600; }
+  .skill-block { border: 1px solid #eee; border-radius: 10px; padding: 22px; margin-bottom: 18px; }
+  .skill-block .num { color: #1e4d8b; font-weight: bold; font-size: 0.85em; }
+  .skill-block h3 { font-family: Georgia, serif; margin: 6px 0; }
+  .skill-block p { color: #555; font-size: 0.95em; }
+  .extra-skills { margin-top: 10px; }
+  .tag-pill { display: inline-block; background: #e8f0fb; color: #1e4d8b; border-radius: 20px; padding: 5px 12px; font-size: 0.85em; margin: 3px 4px 3px 0; }
 
   .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
   .project-card { background: #fafafa; border: 1px solid #eee; border-radius: 12px; padding: 24px; }
   .project-card h3 { font-family: Georgia, serif; margin-bottom: 10px; }
   .project-card p { color: #555; font-size: 0.95em; margin-bottom: 14px; }
-  .tag-pill { display: inline-block; background: #e8f0fb; color: #1e4d8b; border-radius: 20px; padding: 5px 12px; font-size: 0.8em; margin: 3px 4px 3px 0; }
 
   .timeline { border-left: 2px solid #1e4d8b; padding-left: 30px; }
   .timeline-item { margin-bottom: 35px; }
@@ -49,7 +53,10 @@
   .timeline-item p { color: #555; }
 
   .connect { text-align: center; }
-  .connect a { color: #1e4d8b; text-decoration: none; font-weight: 600; margin: 0 10px; }
+  .connect p.lead-text { margin: 0 auto 30px; text-align: center; }
+  .connect-links a { color: #1e4d8b; text-decoration: none; font-weight: 600; margin: 0 10px; }
+  .connect-details { margin-top: 25px; color: #555; }
+  .connect-details div { margin-bottom: 6px; }
 
   footer { text-align: center; padding: 30px; color: #999; font-size: 0.9em; border-top: 1px solid #eee; }
 </style>
@@ -71,9 +78,10 @@
   <div class="hero-text">
     <div class="tag">HELLO, I'M</div>
     <h1>Mohamed Rimas</h1>
-    <h2>Mobile & Web Developer</h2>
-    <p>An undergraduate at SLTC Research University, passionate about building mobile apps with Flutter and web applications with Laravel.</p>
-    <a href="https://github.com/Rimas0711" class="btn outline">GitHub</a>
+    <h2>BAIT Undergraduate | Mobile & Web Developer</h2>
+    <p>I am a Bachelor of Applied Information Technology (BAIT) undergraduate at SLTC Research University with a strong interest in mobile and web application development. I enjoy building practical applications using Flutter, Dart, PHP, Laravel and MySQL while continuously improving my programming and problem-solving skills.</p>
+    <a href="#projects" class="btn">View My Projects →</a>
+    <a href="#connect" class="btn outline">Get In Touch →</a>
   </div>
   <div class="hero-img">
     <img src="RIMAS.jpeg" alt="Mohamed Rimas">
@@ -82,44 +90,57 @@
 
 <section id="about">
   <div class="label">ABOUT ME</div>
-  <h2 class="title">Passionate About Mobile & Web Development</h2>
-  <p style="color:#555; max-width:700px; margin-bottom:30px;">I'm an undergraduate at SLTC Research University, focused on mobile and web application development. I build practical, real-world solutions using Flutter for mobile apps and Laravel for web applications.</p>
-  <div class="about-grid">
-    <div class="col">
-      <div class="info-card">
-        <h3>🎓 Education</h3>
-        <p>SLTC Research University</p>
-      </div>
-    </div>
-    <div class="col">
-      <div class="info-card">
-        <h3>💻 Core Skills</h3>
-        <p>Flutter, Laravel, MySQL, Java</p>
-      </div>
-    </div>
-    <div class="col">
-      <div class="info-card">
-        <h3>🚀 Projects</h3>
-        <p>7 real-world projects completed</p>
-      </div>
-    </div>
-  </div>
+  <h2 class="title">About Me</h2>
+  <p class="lead-text">I am an enthusiastic BAIT undergraduate at SLTC Research University, passionate about software development and technology. My main areas of interest are mobile application development and web application development.</p>
+  <p class="lead-text">I have developed practical experience through academic and personal projects, working with technologies such as Flutter, Dart, PHP, Laravel, MySQL, HTML, CSS and JavaScript.</p>
+  <p class="lead-text">I enjoy learning new technologies, solving real-world problems through software, and turning ideas into functional applications. My goal is to continuously develop my technical skills and build a successful career in the IT industry.</p>
 </section>
 
 <section id="skills">
   <div class="label">EXPERTISE</div>
-  <h2 class="title">Technologies I Work With</h2>
-  <div class="skills-grid">
-    <div class="skill-card">Flutter (Dart)</div>
-    <div class="skill-card">Laravel (PHP)</div>
-    <div class="skill-card">MySQL / SQL</div>
-    <div class="skill-card">HTML, CSS, JS</div>
-    <div class="skill-card">Figma (UI/UX)</div>
-    <div class="skill-card">Git & GitHub</div>
-    <div class="skill-card">Java</div>
-    <div class="skill-card">Database Design</div>
-    <div class="skill-card">System Analysis</div>
-    <div class="skill-card">API Integration</div>
+  <h2 class="title">Technical Skills</h2>
+
+  <div class="skill-block">
+    <div class="num">01 — MOBILE APP DEVELOPMENT</div>
+    <h3>Flutter & Dart</h3>
+    <p>Developing cross-platform mobile applications using Flutter and Dart with a focus on clean UI and user-friendly experiences.</p>
+  </div>
+
+  <div class="skill-block">
+    <div class="num">02 — WEB DEVELOPMENT</div>
+    <h3>PHP & Laravel</h3>
+    <p>Building dynamic web applications using PHP and Laravel with database integration.</p>
+  </div>
+
+  <div class="skill-block">
+    <div class="num">03 — DATABASE</div>
+    <h3>MySQL & SQL</h3>
+    <p>Designing databases, writing SQL queries and working with relational database concepts.</p>
+  </div>
+
+  <div class="skill-block">
+    <div class="num">04 — FRONT-END DEVELOPMENT</div>
+    <h3>HTML, CSS & JavaScript</h3>
+    <p>Creating responsive and interactive web interfaces.</p>
+  </div>
+
+  <div class="skill-block">
+    <div class="num">05 — VERSION CONTROL</div>
+    <h3>Git & GitHub</h3>
+    <p>Managing source code, repositories and project versions using Git and GitHub.</p>
+  </div>
+
+  <div class="skill-block">
+    <div class="num">06 — UI/UX DESIGN</div>
+    <h3>Figma</h3>
+    <p>Designing application interfaces and creating basic UI/UX prototypes using Figma.</p>
+  </div>
+
+  <div class="extra-skills">
+    <span class="tag-pill">Java (Basic)</span>
+    <span class="tag-pill">DBMS</span>
+    <span class="tag-pill">ER Diagrams</span>
+    <span class="tag-pill">SQL Database Design</span>
   </div>
 </section>
 
@@ -129,38 +150,23 @@
   <div class="projects-grid">
     <div class="project-card">
       <h3>ZEVIX Clothing Store App</h3>
-      <p>A clothing e-commerce mobile application built with Flutter (Dart).</p>
-      <span class="tag-pill">Flutter</span><span class="tag-pill">Dart</span>
-    </div>
-    <div class="project-card">
-      <h3>Tailor Shop Management Website</h3>
-      <p>A business website built with Laravel, featuring a bill payment system.</p>
-      <span class="tag-pill">Laravel</span><span class="tag-pill">PHP</span>
+      <p>A mobile e-commerce application developed using Flutter and Dart, designed to provide users with a simple and modern clothing shopping experience.</p>
+      <span class="tag-pill">Flutter</span><span class="tag-pill">Dart</span><span class="tag-pill">Mobile Development</span>
     </div>
     <div class="project-card">
       <h3>Canteen Management System</h3>
-      <p>A database-driven system built using DBMS concepts, SQL, and ER modeling.</p>
-      <span class="tag-pill">SQL</span><span class="tag-pill">ERD</span>
+      <p>A database-driven management system designed to manage canteen products, orders and related information efficiently. The project applies database design, SQL and management system concepts.</p>
+      <span class="tag-pill">PHP</span><span class="tag-pill">MySQL</span><span class="tag-pill">SQL</span><span class="tag-pill">HTML</span><span class="tag-pill">CSS</span>
+    </div>
+    <div class="project-card">
+      <h3>Online Booking System</h3>
+      <p>A web-based booking system that allows users to submit and manage booking information through an easy-to-use interface with database integration.</p>
+      <span class="tag-pill">PHP</span><span class="tag-pill">MySQL</span><span class="tag-pill">HTML</span><span class="tag-pill">CSS</span><span class="tag-pill">JavaScript</span>
     </div>
     <div class="project-card">
       <h3>Online Bakery Ordering System</h3>
-      <p>A web-based ordering platform with database integration.</p>
-      <span class="tag-pill">Web</span><span class="tag-pill">Database</span>
-    </div>
-    <div class="project-card">
-      <h3>Travel Booking System</h3>
-      <p>A booking system built with PHP and MySQL.</p>
-      <span class="tag-pill">PHP</span><span class="tag-pill">MySQL</span>
-    </div>
-    <div class="project-card">
-      <h3>Student Attendance System</h3>
-      <p>A system focused on database design and system architecture.</p>
-      <span class="tag-pill">Database</span><span class="tag-pill">Design</span>
-    </div>
-    <div class="project-card">
-      <h3>FinHabit — Habit Tracking for Finance</h3>
-      <p>A finance habit-tracking application, designed with SRS and system design principles.</p>
-      <span class="tag-pill">SRS</span><span class="tag-pill">Design</span>
+      <p>A web-based ordering system designed to allow customers to browse bakery products and place orders while providing management functionality for the business.</p>
+      <span class="tag-pill">PHP</span><span class="tag-pill">MySQL</span><span class="tag-pill">HTML</span><span class="tag-pill">CSS</span><span class="tag-pill">JavaScript</span>
     </div>
   </div>
 </section>
@@ -171,29 +177,45 @@
   <div class="timeline">
     <div class="timeline-item">
       <div class="year">2024</div>
-      <h3>Started BSc (Hons) at SLTC Research University</h3>
-      <p>Began learning programming, mobile app development, and web development fundamentals.</p>
+      <h3>Started BAIT at SLTC Research University</h3>
+      <p>Began my Bachelor of Applied Information Technology (BAIT) journey at SLTC Research University and developed a foundation in programming, databases and information technology.</p>
     </div>
     <div class="timeline-item">
       <div class="year">2025</div>
-      <h3>Flutter & Laravel Development</h3>
-      <p>Built mobile applications with Flutter and web applications with Laravel and MySQL.</p>
+      <h3>Mobile & Web Development</h3>
+      <p>Started developing practical applications using Flutter, Dart, PHP, Laravel and MySQL while strengthening my programming and database development skills.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="year">2025</div>
+      <h3>Academic & Personal Projects</h3>
+      <p>Worked on different academic and personal projects including mobile applications, web applications, booking systems and database management systems.</p>
     </div>
     <div class="timeline-item">
       <div class="year">2026</div>
-      <h3>Multiple Real-World Projects</h3>
-      <p>Completed 7+ projects including e-commerce apps, booking systems, and management systems.</p>
+      <h3>Building Real-World Projects</h3>
+      <p>Continued developing practical projects and improving my skills in mobile development, web development, databases, UI/UX and version control.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="year">2026</div>
+      <h3>Growing as an IT Professional</h3>
+      <p>Continuously learning new technologies, improving problem-solving abilities and building a professional portfolio to prepare for a career in the IT industry.</p>
     </div>
   </div>
 </section>
 
 <section id="connect" class="connect">
   <div class="label">GET IN TOUCH</div>
-  <h2 class="title">Connect With Me</h2>
-  <p>
+  <h2 class="title">Let's Connect</h2>
+  <p class="lead-text">I'm always interested in connecting with fellow developers, students, recruiters and technology enthusiasts. Feel free to reach out if you'd like to discuss a project, opportunity or collaboration.</p>
+  <div class="connect-links">
     <a href="mailto:mohamedrimas597@gmail.com">Email</a> |
-    <a href="https://github.com/Rimas0711">GitHub</a>
-  </p>
+    <a href="https://github.com/Rimas0711">GitHub</a> |
+    <a href="https://www.linkedin.com/in/mohamed-rimas-5486b72a4">LinkedIn</a>
+  </div>
+  <div class="connect-details">
+    <div>📧 mohamedrimas597@gmail.com</div>
+    <div>🌍 Sri Lanka</div>
+  </div>
 </section>
 
 <footer>
