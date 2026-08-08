@@ -9,7 +9,7 @@
   body { font-family: 'Segoe UI', Arial, sans-serif; background: #ffffff; color: #1a1a1a; line-height: 1.6; scroll-behavior: smooth; }
   nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 60px; border-bottom: 1px solid #eee; position: sticky; top: 0; background: #fff; z-index: 10; flex-wrap: wrap; }
   nav .logo { font-family: Georgia, serif; font-size: 1.6em; font-weight: bold; color: #1e4d8b; }
-  nav ul { list-style: none; display: flex; gap: 30px; flex-wrap: wrap; }
+  nav ul { list-style: none; display: flex; gap: 26px; flex-wrap: wrap; }
   nav ul li a { text-decoration: none; color: #333; font-size: 0.95em; }
   nav ul li a:hover { color: #1e4d8b; }
 
@@ -19,27 +19,34 @@
   .hero-text h1 { font-family: Georgia, serif; font-size: 2.6em; margin: 15px 0; }
   .hero-text h2 { color: #1e4d8b; font-size: 1.15em; margin-bottom: 15px; }
   .hero-text p { color: #555; margin-bottom: 25px; }
-  .btn { background: #1e4d8b; color: #fff; border: none; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-right: 12px; display: inline-block; }
-  .btn.outline { background: #fff; color: #1e4d8b; border: 1px solid #1e4d8b; }
   .hero-img img { width: 300px; height: 360px; object-fit: cover; border-radius: 16px; }
+
+  .social-row { display: flex; gap: 14px; margin-top: 20px; flex-wrap: wrap; }
+  .social-btn { display: flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95em; border: 1px solid #1e4d8b; transition: 0.2s; }
+  .social-btn.primary { background: #1e4d8b; color: #fff; }
+  .social-btn.secondary { background: #fff; color: #1e4d8b; }
+  .social-btn:hover { opacity: 0.85; }
 
   section { max-width: 1000px; margin: 0 auto; padding: 70px 30px; }
   .label { color: #1e4d8b; font-weight: bold; letter-spacing: 1px; font-size: 0.9em; }
   section h2.title { font-family: Georgia, serif; font-size: 2.2em; margin: 10px 0 30px; }
   .lead-text { color: #555; max-width: 750px; margin-bottom: 20px; }
 
-  .about-grid { display: flex; gap: 40px; flex-wrap: wrap; }
-  .about-grid .col { flex: 1; min-width: 280px; }
-  .info-card { border: 1px solid #eee; border-radius: 10px; padding: 20px; margin-bottom: 20px; }
-  .info-card h3 { margin-bottom: 8px; }
-  .info-card p { color: #555; font-size: 0.95em; }
-
-  .skill-block { border: 1px solid #eee; border-radius: 10px; padding: 22px; margin-bottom: 18px; }
-  .skill-block .num { color: #1e4d8b; font-weight: bold; font-size: 0.85em; }
-  .skill-block h3 { font-family: Georgia, serif; margin: 6px 0; }
-  .skill-block p { color: #555; font-size: 0.95em; }
-  .extra-skills { margin-top: 10px; }
+  .skills-icon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 25px; }
+  .skill-icon-card { border: 1px solid #eee; border-radius: 12px; padding: 26px 22px; text-align: center; transition: 0.2s; background: #fafafa; }
+  .skill-icon-card:hover { border-color: #1e4d8b; box-shadow: 0 4px 14px rgba(30,77,139,0.12); transform: translateY(-3px); }
+  .skill-icon-card .icon { font-size: 2.2em; margin-bottom: 12px; }
+  .skill-icon-card h3 { font-size: 1.05em; margin-bottom: 6px; }
+  .skill-icon-card p { color: #777; font-size: 0.85em; }
   .tag-pill { display: inline-block; background: #e8f0fb; color: #1e4d8b; border-radius: 20px; padding: 5px 12px; font-size: 0.85em; margin: 3px 4px 3px 0; }
+
+  .edu-timeline { border-left: 2px solid #1e4d8b; padding-left: 30px; margin-top: 10px; }
+  .edu-item { margin-bottom: 30px; }
+  .edu-item .edu-year { color: #1e4d8b; font-weight: bold; font-size: 0.9em; }
+  .edu-item h3 { font-family: Georgia, serif; margin: 6px 0; }
+  .edu-item p { color: #555; font-size: 0.95em; }
+  .cert-list { margin-top: 25px; }
+  .cert-item { display: flex; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid #eee; color: #333; }
 
   .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
   .project-card { background: #fafafa; border: 1px solid #eee; border-radius: 12px; padding: 24px; }
@@ -68,6 +75,7 @@
   <ul>
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#journey">Journey</a></li>
     <li><a href="#connect">Connect</a></li>
@@ -80,8 +88,11 @@
     <h1>Mohamed Rimas</h1>
     <h2>BAIT Undergraduate | Mobile & Web Developer</h2>
     <p>I am a Bachelor of Applied Information Technology (BAIT) undergraduate at SLTC Research University with a strong interest in mobile and web application development. I enjoy building practical applications using Flutter, Dart, PHP, Laravel and MySQL while continuously improving my programming and problem-solving skills.</p>
-    <a href="#projects" class="btn">View My Projects →</a>
-    <a href="#connect" class="btn outline">Get In Touch →</a>
+    <div class="social-row">
+      <a href="Rimas_CV.pdf" download class="social-btn primary">📄 Download CV</a>
+      <a href="https://github.com/Rimas0711" target="_blank" class="social-btn secondary">💻 GitHub</a>
+      <a href="https://www.linkedin.com/in/mohamed-rimas-5486b72a4" target="_blank" class="social-btn secondary">🔗 LinkedIn</a>
+    </div>
   </div>
   <div class="hero-img">
     <img src="RIMAS.jpeg" alt="Mohamed Rimas">
@@ -100,47 +111,73 @@
   <div class="label">EXPERTISE</div>
   <h2 class="title">Technical Skills</h2>
 
-  <div class="skill-block">
-    <div class="num">01 — MOBILE APP DEVELOPMENT</div>
-    <h3>Flutter & Dart</h3>
-    <p>Developing cross-platform mobile applications using Flutter and Dart with a focus on clean UI and user-friendly experiences.</p>
-  </div>
-
-  <div class="skill-block">
-    <div class="num">02 — WEB DEVELOPMENT</div>
-    <h3>PHP & Laravel</h3>
-    <p>Building dynamic web applications using PHP and Laravel with database integration.</p>
-  </div>
-
-  <div class="skill-block">
-    <div class="num">03 — DATABASE</div>
-    <h3>MySQL & SQL</h3>
-    <p>Designing databases, writing SQL queries and working with relational database concepts.</p>
-  </div>
-
-  <div class="skill-block">
-    <div class="num">04 — FRONT-END DEVELOPMENT</div>
-    <h3>HTML, CSS & JavaScript</h3>
-    <p>Creating responsive and interactive web interfaces.</p>
-  </div>
-
-  <div class="skill-block">
-    <div class="num">05 — VERSION CONTROL</div>
-    <h3>Git & GitHub</h3>
-    <p>Managing source code, repositories and project versions using Git and GitHub.</p>
-  </div>
-
-  <div class="skill-block">
-    <div class="num">06 — UI/UX DESIGN</div>
-    <h3>Figma</h3>
-    <p>Designing application interfaces and creating basic UI/UX prototypes using Figma.</p>
+  <div class="skills-icon-grid">
+    <div class="skill-icon-card">
+      <div class="icon">💙</div>
+      <h3>Flutter & Dart</h3>
+      <p>Mobile App Development</p>
+    </div>
+    <div class="skill-icon-card">
+      <div class="icon">🐘</div>
+      <h3>PHP & Laravel</h3>
+      <p>Web Development</p>
+    </div>
+    <div class="skill-icon-card">
+      <div class="icon">🗄️</div>
+      <h3>MySQL & SQL</h3>
+      <p>Database Management</p>
+    </div>
+    <div class="skill-icon-card">
+      <div class="icon">🌐</div>
+      <h3>HTML, CSS & JavaScript</h3>
+      <p>Front-End Development</p>
+    </div>
+    <div class="skill-icon-card">
+      <div class="icon">🔧</div>
+      <h3>Git & GitHub</h3>
+      <p>Version Control</p>
+    </div>
+    <div class="skill-icon-card">
+      <div class="icon">🎨</div>
+      <h3>Figma</h3>
+      <p>UI/UX Design</p>
+    </div>
   </div>
 
   <div class="extra-skills">
-    <span class="tag-pill">Java (Basic)</span>
+    <span class="tag-pill">Java</span>
     <span class="tag-pill">DBMS</span>
     <span class="tag-pill">ER Diagrams</span>
-    <span class="tag-pill">SQL Database Design</span>
+    <span class="tag-pill">OOP</span>
+    <span class="tag-pill">Data Structures & Algorithms</span>
+    <span class="tag-pill">Problem Solving</span>
+  </div>
+</section>
+
+<section id="education">
+  <div class="label">MY EDUCATION</div>
+  <h2 class="title">Education & Certifications</h2>
+
+  <div class="edu-timeline">
+    <div class="edu-item">
+      <div class="edu-year">2024 – Present</div>
+      <h3>Bachelor of Applied Information Technology (BAIT)</h3>
+      <p>SLTC Research University</p>
+      <p><strong>Relevant Coursework:</strong> Data Structures & Algorithms, Database Management Systems, Web Development, Mobile Application Development, Software Engineering, Programming</p>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2022 (2023)</div>
+      <h3>G.C.E. Advanced Level (A/L)</h3>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2019</div>
+      <h3>G.C.E. Ordinary Level (O/L)</h3>
+    </div>
+  </div>
+
+  <div class="cert-list">
+    <div class="cert-item">🏆 Professional Diploma in English</div>
+    <div class="cert-item">🏆 Professional Diploma in Information Technology</div>
   </div>
 </section>
 
@@ -150,22 +187,22 @@
   <div class="projects-grid">
     <div class="project-card">
       <h3>ZEVIX Clothing Store App</h3>
-      <p>A mobile e-commerce application developed using Flutter and Dart, designed to provide users with a simple and modern clothing shopping experience.</p>
-      <span class="tag-pill">Flutter</span><span class="tag-pill">Dart</span><span class="tag-pill">Mobile Development</span>
+      <p>A cross-platform mobile clothing store application with a modern, user-friendly shopping interface and responsive UI components.</p>
+      <span class="tag-pill">Flutter</span><span class="tag-pill">Dart</span>
     </div>
     <div class="project-card">
       <h3>Canteen Management System</h3>
-      <p>A database-driven management system designed to manage canteen products, orders and related information efficiently. The project applies database design, SQL and management system concepts.</p>
+      <p>A database-driven canteen management application with relational database structures, SQL queries, and full CRUD functionality.</p>
       <span class="tag-pill">PHP</span><span class="tag-pill">MySQL</span><span class="tag-pill">SQL</span><span class="tag-pill">HTML</span><span class="tag-pill">CSS</span>
     </div>
     <div class="project-card">
-      <h3>Online Booking System</h3>
-      <p>A web-based booking system that allows users to submit and manage booking information through an easy-to-use interface with database integration.</p>
-      <span class="tag-pill">PHP</span><span class="tag-pill">MySQL</span><span class="tag-pill">HTML</span><span class="tag-pill">CSS</span><span class="tag-pill">JavaScript</span>
+      <h3>Book Shop Management ERP System</h3>
+      <p>A web-based ERP system for book shop operations with database-driven features built using Laravel and MySQL.</p>
+      <span class="tag-pill">Laravel</span><span class="tag-pill">PHP</span><span class="tag-pill">MySQL</span><span class="tag-pill">Blade</span><span class="tag-pill">JavaScript</span>
     </div>
     <div class="project-card">
       <h3>Online Bakery Ordering System</h3>
-      <p>A web-based ordering system designed to allow customers to browse bakery products and place orders while providing management functionality for the business.</p>
+      <p>A web-based ordering system allowing customers to browse bakery products and place orders, with management functionality for the business.</p>
       <span class="tag-pill">PHP</span><span class="tag-pill">MySQL</span><span class="tag-pill">HTML</span><span class="tag-pill">CSS</span><span class="tag-pill">JavaScript</span>
     </div>
   </div>
