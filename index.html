@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mohamed Rimas | Portfolio</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231e4d8b'/%3E%3Ctext x='50' y='68' font-size='45' font-family='Georgia,serif' font-weight='bold' fill='white' text-anchor='middle'%3EMR%3C/text%3E%3C/svg%3E">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Segoe UI', Arial, sans-serif; background: #ffffff; color: #1a1a1a; line-height: 1.6; scroll-behavior: smooth; }
@@ -13,6 +14,12 @@
   nav ul li a { text-decoration: none; color: #333; font-size: 0.95em; }
   nav ul li a:hover { color: #1e4d8b; }
   .menu-toggle { display: none; font-size: 1.8em; background: none; border: none; color: #1e4d8b; cursor: pointer; }
+
+  @media (min-width: 769px) {
+    .hero { flex-direction: column; align-items: flex-start; text-align: left; }
+    .hero-img { order: -1; margin-bottom: 20px; }
+    .hero-img img { width: 180px; height: 180px; border-radius: 50%; }
+  }
 
   .hero { display: flex; align-items: center; justify-content: space-between; padding: 80px 60px; flex-wrap: wrap; gap: 40px; }
   .hero-text { max-width: 550px; }
@@ -54,6 +61,7 @@
   .project-card p { color: #555; font-size: 0.95em; margin-bottom: 14px; }
   .project-link { color: #1e4d8b; font-weight: 600; text-decoration: none; display: inline-block; margin-top: 10px; }
   .project-link:hover { text-decoration: underline; }
+  .no-code-note { color: #999; font-size: 0.85em; font-style: italic; display: block; margin-top: 10px; }
 
   .timeline { border-left: 2px solid #1e4d8b; padding-left: 30px; }
   .timeline-item { margin-bottom: 35px; }
@@ -198,11 +206,6 @@
       <a href="https://github.com/Rimas0711/zevix-clothing-app" target="_blank" class="project-link">View on GitHub →</a>
     </div>
     <div class="project-card">
-      <h3>Canteen Management System</h3>
-      <p>A database-driven canteen management application with relational database structures, SQL queries, and full CRUD functionality.</p>
-      <span class="tag-pill">PHP</span><span class="tag-pill">MySQL</span><span class="tag-pill">SQL</span><span class="tag-pill">HTML</span><span class="tag-pill">CSS</span>
-    </div>
-    <div class="project-card">
       <h3>Book Shop Management ERP System</h3>
       <p>A web-based ERP system for book shop operations with database-driven features built using Laravel and MySQL.</p>
       <span class="tag-pill">Laravel</span><span class="tag-pill">PHP</span><span class="tag-pill">MySQL</span><span class="tag-pill">Blade</span><span class="tag-pill">JavaScript</span>
@@ -210,9 +213,10 @@
       <a href="https://github.com/Rimas0711/book-shop-erp-system" target="_blank" class="project-link">View on GitHub →</a>
     </div>
     <div class="project-card">
-      <h3>Online Bakery Ordering System</h3>
-      <p>A web-based ordering system allowing customers to browse bakery products and place orders, with management functionality for the business.</p>
-      <span class="tag-pill">PHP</span><span class="tag-pill">MySQL</span><span class="tag-pill">HTML</span><span class="tag-pill">CSS</span><span class="tag-pill">JavaScript</span>
+      <h3>Canteen Management System</h3>
+      <p>A database-driven canteen management application with relational database structures, SQL queries, and full CRUD functionality.</p>
+      <span class="tag-pill">PHP</span><span class="tag-pill">MySQL</span><span class="tag-pill">SQL</span><span class="tag-pill">HTML</span><span class="tag-pill">CSS</span>
+      <span class="no-code-note">Academic project — code not yet published</span>
     </div>
   </div>
 </section>
