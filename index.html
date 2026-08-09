@@ -55,15 +55,16 @@
   .skill-icon-card p { color: #777; font-size: 0.85em; }
   .tag-pill { display: inline-block; background: #e8f0fb; color: #1e4d8b; border-radius: 20px; padding: 5px 12px; font-size: 0.85em; margin: 3px 4px 3px 0; }
 
-  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .projects-list { display: flex; flex-direction: column; gap: 24px; }
   .project-card { background: #fafafa; border: 1px solid #eee; border-radius: 12px; padding: 24px; }
-  .project-card h3 { font-family: Georgia, serif; margin-bottom: 10px; }
+  .project-card h3 { font-family: Georgia, serif; margin-bottom: 10px; font-size: 1.3em; }
   .project-card p { color: #555; font-size: 0.95em; margin-bottom: 14px; }
-  .project-link { color: #1e4d8b; font-weight: 600; text-decoration: none; display: inline-block; margin-top: 10px; }
+  .project-links { margin-top: 12px; }
+  .project-link { color: #1e4d8b; font-weight: 600; text-decoration: none; display: inline-block; margin-top: 6px; margin-right: 20px; }
   .project-link:hover { text-decoration: underline; }
   .no-code-note { color: #999; font-size: 0.85em; font-style: italic; display: block; margin-top: 10px; }
-  .project-shots { display: flex; gap: 8px; margin-top: 14px; }
-  .project-shots img { width: 100%; height: 90px; object-fit: cover; border-radius: 8px; border: 1px solid #eee; }
+  .project-shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-top: 14px; }
+  .project-shots img { width: 100%; height: 120px; object-fit: cover; border-radius: 8px; border: 1px solid #eee; }
 
   .timeline { border-left: 2px solid #1e4d8b; padding-left: 30px; }
   .timeline-item { margin-bottom: 35px; }
@@ -137,7 +138,7 @@
   <a href="#projects" class="highlight-card">
     <div class="h-icon">🚀</div>
     <h3>Projects</h3>
-    <p>ZEVIX App & 3 more projects</p>
+    <p>5 real-world projects</p>
   </a>
 </div>
 
@@ -199,14 +200,22 @@
 <section id="projects">
   <div class="label">MY WORK</div>
   <h2 class="title">Featured Projects</h2>
-  <div class="projects-grid">
+  <div class="projects-list">
+
     <div class="project-card">
       <h3>ZEVIX Clothing Store App</h3>
       <p>A cross-platform mobile clothing store application with a modern, user-friendly shopping interface and responsive UI components.</p>
       <span class="tag-pill">Flutter</span><span class="tag-pill">Dart</span>
-      <br>
-      <a href="https://github.com/Rimas0711/zevix-clothing-app" target="_blank" class="project-link">View on GitHub →</a>
+      <div class="project-shots">
+        <img src="zevix-splash.png" alt="ZEVIX Splash Screen">
+        <img src="zevix-login.png" alt="ZEVIX Login Screen">
+        <img src="zevix-home.png" alt="ZEVIX Home Screen">
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/Rimas0711/zevix-clothing-app" target="_blank" class="project-link">View on GitHub →</a>
+      </div>
     </div>
+
     <div class="project-card">
       <h3>Book Shop Management ERP System</h3>
       <p>A web-based ERP system for book shop operations with database-driven features built using Laravel and MySQL.</p>
@@ -216,14 +225,47 @@
         <img src="bookshop-dashboard.png" alt="BookVerse ERP Dashboard">
         <img src="bookshop-pos.png" alt="BookVerse ERP POS Billing">
       </div>
-      <a href="https://github.com/Rimas0711/book-shop-erp-system" target="_blank" class="project-link">View on GitHub →</a>
+      <div class="project-links">
+        <a href="https://github.com/Rimas0711/book-shop-erp-system" target="_blank" class="project-link">View on GitHub →</a>
+      </div>
     </div>
+
+    <div class="project-card">
+      <h3>Travel Tour Website</h3>
+      <p>Developed an interactive travel website showcasing destinations and tour experiences. Added easy navigation to improve the overall user experience. Created a responsive design suitable for desktop and mobile devices.</p>
+      <span class="tag-pill">HTML</span><span class="tag-pill">CSS</span><span class="tag-pill">JavaScript</span>
+      <div class="project-shots">
+        <img src="travel-home.png" alt="Travel Tour Home Page">
+        <img src="travel-booking.png" alt="Travel Tour Booking Details">
+        <img src="travel-packages.png" alt="Travel Tour Packages">
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/Rimas0711/travel-tour-website" target="_blank" class="project-link">View on GitHub →</a>
+        <a href="https://rimas0711.github.io/travel-tour-website" target="_blank" class="project-link">Live Site →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <h3>Cake Bakery Website</h3>
+      <p>Developed a responsive website for showcasing cakes and bakery products. Designed an attractive and user-friendly interface using HTML and CSS. Created a mobile-friendly layout for a better customer experience.</p>
+      <span class="tag-pill">HTML</span><span class="tag-pill">CSS</span>
+      <div class="project-shots">
+        <img src="cake-home.png" alt="Cake Bakery Home Page">
+        <img src="cake-varieties.png" alt="Cake Bakery Varieties">
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/Rimas0711/cake-bakery-website" target="_blank" class="project-link">View on GitHub →</a>
+        <a href="https://rimas0711.github.io/cake-bakery-website" target="_blank" class="project-link">Live Site →</a>
+      </div>
+    </div>
+
     <div class="project-card">
       <h3>Canteen Management System</h3>
       <p>A database-driven canteen management application with relational database structures, SQL queries, and full CRUD functionality.</p>
       <span class="tag-pill">PHP</span><span class="tag-pill">MySQL</span><span class="tag-pill">SQL</span><span class="tag-pill">HTML</span><span class="tag-pill">CSS</span>
       <span class="no-code-note">Academic project — code not yet published</span>
     </div>
+
   </div>
 </section>
 
