@@ -78,7 +78,18 @@
   .connect-details { margin-top: 25px; color: #555; }
   .connect-details div { margin-bottom: 6px; }
 
+  .contact-form { max-width: 550px; margin: 40px auto 0; text-align: left; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.9em; }
+  .form-group input, .form-group textarea { width: 100%; padding: 12px 14px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 0.95em; }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-submit-btn { background: #1e4d8b; color: #fff; border: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 0.95em; cursor: pointer; }
+  .form-submit-btn:hover { opacity: 0.9; }
+
   footer { text-align: center; padding: 30px; color: #999; font-size: 0.9em; border-top: 1px solid #eee; }
+
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
 
   @media (max-width: 768px) {
     nav { padding: 16px 24px; }
@@ -112,7 +123,7 @@
     <div class="tag">HELLO, I'M</div>
     <h1>Mohamed Rimas</h1>
     <h2>BAIT Undergraduate | Mobile & Web Developer</h2>
-    <p>I am a Bachelor of Applied Information Technology (BAIT) undergraduate at SLTC Research University with a strong interest in mobile and web application development. I enjoy building practical applications using Flutter, Dart, PHP, Laravel and MySQL while continuously improving my programming and problem-solving skills.</p>
+    <p>I'm a Bachelor of Applied Information Technology (BAIT) undergraduate at SLTC Research University, building mobile apps with Flutter and web applications with Laravel and MySQL. I enjoy turning ideas into practical, working software.</p>
     <div class="social-row">
       <a href="Rimas_CV.pdf" target="_blank" class="social-btn primary" onclick="var a=document.createElement('a');a.href='Rimas_CV.pdf';a.download='Mohamed_Rimas_CV.pdf';a.click();">📄 View / Download CV</a>
       <a href="https://github.com/Rimas0711" target="_blank" class="social-btn secondary">💻 GitHub</a>
@@ -142,15 +153,15 @@
   </a>
 </div>
 
-<section id="about">
+<section id="about" class="fade-in">
   <div class="label">ABOUT ME</div>
   <h2 class="title">About Me</h2>
-  <p class="lead-text">I am an enthusiastic BAIT undergraduate at SLTC Research University, passionate about software development and technology. My main areas of interest are mobile application development and web application development.</p>
-  <p class="lead-text">I have developed practical experience through academic and personal projects, working with technologies such as Flutter, Dart, PHP, Laravel, MySQL, HTML, CSS and JavaScript.</p>
-  <p class="lead-text">I enjoy learning new technologies, solving real-world problems through software, and turning ideas into functional applications. My goal is to continuously develop my technical skills and build a successful career in the IT industry.</p>
+  <p class="lead-text">I'm an enthusiastic BAIT undergraduate at SLTC Research University with a strong interest in software development. My core focus areas are mobile application development and web application development.</p>
+  <p class="lead-text">Through academic and personal projects, I've gained hands-on experience with Flutter, Dart, PHP, Laravel, MySQL, HTML, CSS and JavaScript — building everything from mobile shopping apps to database-driven web systems.</p>
+  <p class="lead-text">I enjoy solving real-world problems through software and I'm continuously working to sharpen my skills as I build toward a career in the IT industry.</p>
 </section>
 
-<section id="skills">
+<section id="skills" class="fade-in">
   <div class="label">EXPERTISE</div>
   <h2 class="title">Technical Skills</h2>
 
@@ -199,7 +210,7 @@
   </div>
 </section>
 
-<section id="projects">
+<section id="projects" class="fade-in">
   <div class="label">MY WORK</div>
   <h2 class="title">Featured Projects</h2>
   <div class="projects-list">
@@ -271,7 +282,7 @@
   </div>
 </section>
 
-<section id="journey">
+<section id="journey" class="fade-in">
   <div class="label">MY JOURNEY</div>
   <h2 class="title">Education & Experience</h2>
   <div class="timeline">
@@ -303,7 +314,7 @@
   </div>
 </section>
 
-<section id="connect" class="connect">
+<section id="connect" class="connect fade-in">
   <div class="label">GET IN TOUCH</div>
   <h2 class="title">Let's Connect</h2>
   <p class="lead-text">I'm always interested in connecting with fellow developers, students, recruiters and technology enthusiasts. Feel free to reach out if you'd like to discuss a project, opportunity or collaboration.</p>
@@ -316,11 +327,51 @@
     <div>📧 mohamedrimas597@gmail.com</div>
     <div>🌍 Sri Lanka</div>
   </div>
+
+  <form class="contact-form" onsubmit="sendMail(event)">
+    <div class="form-group">
+      <label for="cname">Name</label>
+      <input type="text" id="cname" required>
+    </div>
+    <div class="form-group">
+      <label for="cemail">Your Email</label>
+      <input type="email" id="cemail" required>
+    </div>
+    <div class="form-group">
+      <label for="cmessage">Message</label>
+      <textarea id="cmessage" required></textarea>
+    </div>
+    <button type="submit" class="form-submit-btn">Send Message</button>
+  </form>
 </section>
 
 <footer>
   &copy; 2026 Mohamed Rimas
 </footer>
+
+<script>
+function sendMail(e) {
+  e.preventDefault();
+  var name = document.getElementById('cname').value;
+  var email = document.getElementById('cemail').value;
+  var message = document.getElementById('cmessage').value;
+  var subject = "Portfolio Contact from " + name;
+  var body = "Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message;
+  window.location.href = "mailto:mohamedrimas597@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+}
+
+const faders = document.querySelectorAll('.fade-in');
+const appearOptions = { threshold: 0.15 };
+const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, appearOptions);
+faders.forEach(fader => appearOnScroll.observe(fader));
+</script>
 
 </body>
 </html>
