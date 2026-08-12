@@ -42,6 +42,11 @@
   .highlight-card h3 { font-size: 1.15em; margin-bottom: 6px; }
   .highlight-card p { color: #777; font-size: 0.9em; }
 
+  .stats-band { background: #1e4d8b; padding: 50px 30px; }
+  .stats-grid { max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; text-align: center; }
+  .stat-item .stat-num { font-family: Georgia, serif; font-size: 2.6em; font-weight: bold; color: #fff; }
+  .stat-item .stat-label { color: #cfe0f5; font-size: 0.95em; margin-top: 6px; }
+
   section { max-width: 1000px; margin: 0 auto; padding: 70px 30px; }
   .label { color: #1e4d8b; font-weight: bold; letter-spacing: 1px; font-size: 0.9em; }
   section h2.title { font-family: Georgia, serif; font-size: 2.2em; margin: 10px 0 30px; }
@@ -54,6 +59,11 @@
   .skill-icon-card h3 { font-size: 1.05em; margin-bottom: 6px; }
   .skill-icon-card p { color: #777; font-size: 0.85em; }
   .tag-pill { display: inline-block; background: #e8f0fb; color: #1e4d8b; border-radius: 20px; padding: 5px 12px; font-size: 0.85em; margin: 3px 4px 3px 0; }
+
+  .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
+  .tool-item { display: flex; align-items: center; gap: 10px; border: 1px solid #eee; border-radius: 10px; padding: 14px 16px; background: #fafafa; font-weight: 600; font-size: 0.95em; transition: 0.2s; }
+  .tool-item:hover { border-color: #1e4d8b; box-shadow: 0 4px 14px rgba(30,77,139,0.1); }
+  .tool-item .t-icon { font-size: 1.4em; }
 
   .projects-list { display: flex; flex-direction: column; gap: 24px; }
   .project-card { background: #fafafa; border: 1px solid #eee; border-radius: 12px; padding: 24px; }
@@ -90,6 +100,10 @@
 
   .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  .scroll-top-btn { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; border-radius: 50%; background: #1e4d8b; color: #fff; border: none; font-size: 1.4em; cursor: pointer; box-shadow: 0 4px 14px rgba(30,77,139,0.35); display: none; align-items: center; justify-content: center; z-index: 30; transition: 0.2s; }
+  .scroll-top-btn.show { display: flex; }
+  .scroll-top-btn:hover { opacity: 0.9; transform: translateY(-3px); }
 
   @media (max-width: 768px) {
     nav { padding: 16px 24px; }
@@ -153,6 +167,23 @@
   </a>
 </div>
 
+<div class="stats-band">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-num">5+</div>
+      <div class="stat-label">Projects Completed</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">Technologies</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">2</div>
+      <div class="stat-label">Live Deployed Sites</div>
+    </div>
+  </div>
+</div>
+
 <section id="about" class="fade-in">
   <div class="label">ABOUT ME</div>
   <h2 class="title">About Me</h2>
@@ -207,6 +238,21 @@
     <span class="tag-pill">Problem Solving</span>
     <span class="tag-pill">Responsive Web Design</span>
     <span class="tag-pill">REST API Integration</span>
+  </div>
+</section>
+
+<section id="tools" class="fade-in">
+  <div class="label">MY TOOLKIT</div>
+  <h2 class="title">Tools & Software</h2>
+  <div class="tools-grid">
+    <div class="tool-item"><span class="t-icon">💻</span> VS Code</div>
+    <div class="tool-item"><span class="t-icon">📱</span> Android Studio</div>
+    <div class="tool-item"><span class="t-icon">🔧</span> Git</div>
+    <div class="tool-item"><span class="t-icon">🐙</span> GitHub</div>
+    <div class="tool-item"><span class="t-icon">🎨</span> Figma</div>
+    <div class="tool-item"><span class="t-icon">🗄️</span> XAMPP</div>
+    <div class="tool-item"><span class="t-icon">📮</span> Postman</div>
+    <div class="tool-item"><span class="t-icon">☁️</span> GitHub Pages</div>
   </div>
 </section>
 
@@ -349,6 +395,8 @@
   &copy; 2026 Mohamed Rimas
 </footer>
 
+<button class="scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
 <script>
 function sendMail(e) {
   e.preventDefault();
@@ -371,6 +419,15 @@ const appearOnScroll = new IntersectionObserver(function(entries, observer) {
   });
 }, appearOptions);
 faders.forEach(fader => appearOnScroll.observe(fader));
+
+const scrollBtn = document.getElementById('scrollTopBtn');
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 400) {
+    scrollBtn.classList.add('show');
+  } else {
+    scrollBtn.classList.remove('show');
+  }
+});
 </script>
 
 </body>
