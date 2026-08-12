@@ -89,16 +89,21 @@
   .skill-category { border: 1px solid; border-radius: 16px; padding: 30px; margin-bottom: 24px; background: #0d0d14; }
   .skill-category.c1 { border-color: #7c3aed; box-shadow: 0 0 24px rgba(124,58,237,0.15); }
   .skill-category.c2 { border-color: #2563eb; box-shadow: 0 0 24px rgba(37,99,235,0.15); }
-  .skill-category.c3 { border-color: #db2777; box-shadow: 0 0 24px rgba(219,39,119,0.15); }
+  .skill-category.c3 { border-color: #2563eb; box-shadow: 0 0 24px rgba(37,99,235,0.15); }
+  .skill-category.c4 { border-color: #0ea5e9; box-shadow: 0 0 24px rgba(14,165,233,0.15); }
   .skill-category h3 { text-align: center; font-family: Georgia, serif; font-size: 1.5em; color: #fff; margin-bottom: 20px; }
-  .skill-row { display: flex; align-items: center; gap: 14px; background: #16161f; border: 1px solid #26262f; border-radius: 10px; padding: 14px 18px; margin-bottom: 12px; font-weight: 600; }
+  .skill-row { display: flex; align-items: center; gap: 14px; background: #16161f; border: 1px solid #26262f; border-radius: 10px; padding: 14px 18px; margin-bottom: 12px; font-weight: 600; transition: 0.25s; }
+  .skill-row:last-child { margin-bottom: 0; }
+  .skill-row:hover { border-color: #a78bfa; transform: translateX(4px); }
   .skill-row .s-icon { font-size: 1.3em; width: 24px; text-align: center; }
   .tag-pill { display: inline-block; background: #1b1530; color: #b39ff5; border-radius: 20px; padding: 5px 12px; font-size: 0.85em; margin: 3px 4px 3px 0; font-weight: 600; border: 1px solid #322659; }
 
-  .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
-  .tool-item { display: flex; align-items: center; gap: 12px; border: 1px solid #26262f; border-radius: 10px; padding: 14px 16px; background: #0d0d14; font-weight: 600; font-size: 0.95em; transition: 0.25s; }
-  .tool-item:hover { border-color: #db2777; box-shadow: 0 8px 22px rgba(219,39,119,0.2); transform: translateY(-3px); }
-  .tool-item .t-icon { font-size: 1.3em; width: 22px; text-align: center; color: #f472b6; }
+  .extra-skills { border: 1px solid #db2777; border-radius: 16px; padding: 30px; background: #0d0d14; box-shadow: 0 0 24px rgba(219,39,119,0.15); }
+  .extra-skills h3 { text-align: center; font-family: Georgia, serif; font-size: 1.5em; color: #fff; margin-bottom: 20px; }
+  .extra-row { display: flex; align-items: center; gap: 14px; background: #16161f; border: 1px solid #26262f; border-radius: 10px; padding: 14px 18px; margin-bottom: 12px; font-weight: 600; transition: 0.25s; }
+  .extra-row:last-child { margin-bottom: 0; }
+  .extra-row:hover { border-color: #f472b6; transform: translateX(4px); }
+  .extra-row .s-icon { font-size: 1.3em; width: 24px; text-align: center; color: #f472b6; }
 
   .projects-list { display: flex; flex-direction: column; gap: 26px; }
   .project-card { background: #0d0d14; border: 1px solid #222; border-radius: 16px; padding: 26px; position: relative; transition: 0.25s; }
@@ -187,8 +192,6 @@
     <p>I'm a Bachelor of Applied Information Technology (BAIT) undergraduate at SLTC Research University, building mobile apps with Flutter and web applications with Laravel and MySQL. I enjoy turning ideas into practical, working software.</p>
     <div class="social-row">
       <a href="Rimas_CV.pdf" target="_blank" class="social-btn primary" onclick="var a=document.createElement('a');a.href='Rimas_CV.pdf';a.download='Mohamed_Rimas_CV.pdf';a.click();"><i class="fa-solid fa-file-arrow-down"></i> View / Download CV</a>
-      <a href="https://github.com/Rimas0711" target="_blank" class="social-btn secondary"><i class="fa-brands fa-github"></i> GitHub</a>
-      <a href="https://www.linkedin.com/in/mohamed-rimas-5486b72a4" target="_blank" class="social-btn secondary"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
     </div>
     <div class="icon-circle-row">
       <a href="https://www.linkedin.com/in/mohamed-rimas-5486b72a4" target="_blank" class="icon-circle" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -269,29 +272,32 @@
   </div>
 
   <div class="extra-skills">
-    <span class="tag-pill">Java</span>
-    <span class="tag-pill">DBMS</span>
-    <span class="tag-pill">ER Diagrams</span>
-    <span class="tag-pill">OOP</span>
-    <span class="tag-pill">Data Structures & Algorithms</span>
-    <span class="tag-pill">Problem Solving</span>
-    <span class="tag-pill">Responsive Web Design</span>
-    <span class="tag-pill">REST API Integration</span>
+    <h3>Other Skills</h3>
+    <div class="extra-row"><span class="s-icon"><i class="fa-brands fa-java"></i></span> Java</div>
+    <div class="extra-row"><span class="s-icon"><i class="fa-solid fa-database"></i></span> DBMS</div>
+    <div class="extra-row"><span class="s-icon"><i class="fa-solid fa-diagram-project"></i></span> ER Diagrams</div>
+    <div class="extra-row"><span class="s-icon"><i class="fa-solid fa-cubes"></i></span> OOP</div>
+    <div class="extra-row"><span class="s-icon"><i class="fa-solid fa-sitemap"></i></span> Data Structures & Algorithms</div>
+    <div class="extra-row"><span class="s-icon"><i class="fa-solid fa-lightbulb"></i></span> Problem Solving</div>
+    <div class="extra-row"><span class="s-icon"><i class="fa-solid fa-mobile-screen"></i></span> Responsive Web Design</div>
+    <div class="extra-row"><span class="s-icon"><i class="fa-solid fa-plug"></i></span> REST API Integration</div>
   </div>
 </section>
 
 <section id="tools" class="fade-in">
   <div class="label">MY TOOLKIT</div>
   <h2 class="title">Tools & <span class="gradient-text">Software</span></h2>
-  <div class="tools-grid">
-    <div class="tool-item"><span class="t-icon"><i class="fa-solid fa-code"></i></span> VS Code</div>
-    <div class="tool-item"><span class="t-icon"><i class="fa-brands fa-android"></i></span> Android Studio</div>
-    <div class="tool-item"><span class="t-icon"><i class="fa-brands fa-git-alt"></i></span> Git</div>
-    <div class="tool-item"><span class="t-icon"><i class="fa-brands fa-github"></i></span> GitHub</div>
-    <div class="tool-item"><span class="t-icon"><i class="fa-brands fa-figma"></i></span> Figma</div>
-    <div class="tool-item"><span class="t-icon"><i class="fa-solid fa-server"></i></span> XAMPP</div>
-    <div class="tool-item"><span class="t-icon"><i class="fa-solid fa-paper-plane"></i></span> Postman</div>
-    <div class="tool-item"><span class="t-icon"><i class="fa-brands fa-github"></i></span> GitHub Pages</div>
+
+  <div class="skill-category c4">
+    <h3>Development Tools</h3>
+    <div class="skill-row"><span class="s-icon"><i class="fa-solid fa-code" style="color:#60a5fa;"></i></span> VS Code</div>
+    <div class="skill-row"><span class="s-icon"><i class="fa-brands fa-android" style="color:#a4c639;"></i></span> Android Studio</div>
+    <div class="skill-row"><span class="s-icon"><i class="fa-brands fa-git-alt" style="color:#f05032;"></i></span> Git</div>
+    <div class="skill-row"><span class="s-icon"><i class="fa-brands fa-github" style="color:#e5e5e5;"></i></span> GitHub</div>
+    <div class="skill-row"><span class="s-icon"><i class="fa-brands fa-figma" style="color:#f472b6;"></i></span> Figma</div>
+    <div class="skill-row"><span class="s-icon"><i class="fa-solid fa-server" style="color:#a78bfa;"></i></span> XAMPP</div>
+    <div class="skill-row"><span class="s-icon"><i class="fa-solid fa-paper-plane" style="color:#ff6c37;"></i></span> Postman</div>
+    <div class="skill-row"><span class="s-icon"><i class="fa-brands fa-github" style="color:#e5e5e5;"></i></span> GitHub Pages</div>
   </div>
 </section>
 
