@@ -36,11 +36,12 @@
 
   nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 60px; border-bottom: 1px solid #1c1c26; position: sticky; top: 0; background: rgba(5,5,10,0.85); backdrop-filter: blur(8px); z-index: 20; }
   nav .logo { font-family: Georgia, serif; font-size: 1.7em; font-weight: bold; }
+  .nav-right { display: flex; align-items: center; gap: 20px; }
   nav ul { list-style: none; display: flex; gap: 26px; }
   nav ul li a { text-decoration: none; color: #ccc; font-size: 0.95em; }
   nav ul li a:hover { color: #a78bfa; }
   .menu-toggle { display: none; font-size: 1.8em; background: none; border: none; color: #a78bfa; cursor: pointer; }
-  .theme-toggle { display: flex; align-items: center; gap: 8px; background: #12121a; border: 1px solid #333; color: #e5e5e5; padding: 8px 16px; border-radius: 20px; font-size: 0.9em; font-weight: 600; cursor: pointer; transition: 0.25s; margin-left: 20px; }
+  .theme-toggle { display: flex; align-items: center; gap: 8px; background: #12121a; border: 1px solid #333; color: #e5e5e5; padding: 8px 16px; border-radius: 20px; font-size: 0.9em; font-weight: 600; cursor: pointer; transition: 0.25s; }
   .theme-toggle:hover { border-color: #a78bfa; color: #a78bfa; }
 
   @media (min-width: 769px) {
@@ -216,15 +217,17 @@
 
 <nav>
   <div class="logo gradient-text">MR</div>
-  <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('show')"><i class="fa-solid fa-bars"></i></button>
-  <ul id="navLinks">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#journey">Journey</a></li>
-    <li><a href="#connect">Connect</a></li>
-  </ul>
-  <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle theme"><i class="fa-solid fa-moon"></i> <span id="themeLabel">Dark</span></button>
+  <div class="nav-right">
+    <ul id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#connect">Connect</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle theme"><i class="fa-solid fa-moon"></i> <span id="themeLabel">Dark</span></button>
+    <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('show')"><i class="fa-solid fa-bars"></i></button>
+  </div>
 </nav>
 
 <div class="hero">
