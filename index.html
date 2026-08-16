@@ -8,31 +8,21 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { overflow-x: hidden; scroll-behavior: smooth; }
+  html { overflow-x: hidden; }
   body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: #0a0e17;
-    background-image: radial-gradient(#151b29 1px, transparent 1px);
-    background-size: 22px 22px;
-    color: #e5e5e5; line-height: 1.6;
+    background: #05050a; color: #e5e5e5; line-height: 1.6; scroll-behavior: smooth;
     position: relative; overflow-x: hidden;
   }
-
-  /* ---------- animated background blobs ---------- */
+  .stars { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-2; background-image: radial-gradient(#333 1px, transparent 1px); background-size: 26px 26px; }
   .bg-blobs { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; pointer-events: none; }
-  .blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.28; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.35; }
   .blob1 { width: 380px; height: 380px; background: #2563eb; top: -100px; left: -100px; animation: floatA 18s ease-in-out infinite; }
   .blob2 { width: 320px; height: 320px; background: #7c3aed; top: 30%; right: -120px; animation: floatB 22s ease-in-out infinite; }
   .blob3 { width: 300px; height: 300px; background: #db2777; bottom: -100px; left: 20%; animation: floatC 20s ease-in-out infinite; }
-  .blob4 { width: 260px; height: 260px; background: #0ea5e9; bottom: 10%; right: 10%; animation: floatA 25s ease-in-out infinite reverse; }
   @keyframes floatA { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(60px,80px) scale(1.15); } }
   @keyframes floatB { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-70px,50px) scale(1.1); } }
   @keyframes floatC { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(50px,-60px) scale(1.2); } }
-
-  /* ---------- twinkling star layer for extra dark-mode atmosphere ---------- */
-  .stars { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
-  .star { position: absolute; width: 2px; height: 2px; background: #6ea8ff; border-radius: 50%; opacity: 0.5; animation: twinkle 4s ease-in-out infinite; }
-  @keyframes twinkle { 0%,100% { opacity: 0.15; } 50% { opacity: 0.85; } }
 
   .gradient-text { background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
@@ -44,15 +34,12 @@
   .menu-toggle { display: none; font-size: 1.8em; background: none; border: none; color: #a78bfa; cursor: pointer; }
 
   @media (min-width: 769px) {
-    .hero { align-items: flex-start; text-align: left; }
+    .hero { flex-direction: column; align-items: flex-start; text-align: left; }
+    .hero-img { order: -1; margin-bottom: 20px; }
     .hero-img img { width: 180px; height: 180px; border-radius: 50%; }
   }
-  @media (max-width: 768px) {
-    .hero { align-items: center; text-align: center; }
-  }
 
-  .hero { display: flex; align-items: center; justify-content: space-between; padding: 80px 60px; flex-wrap: wrap; gap: 40px; position: relative; flex-direction: column; }
-  .hero-img { order: -1; margin-bottom: 20px; }
+  .hero { display: flex; align-items: center; justify-content: space-between; padding: 80px 60px; flex-wrap: wrap; gap: 40px; position: relative; }
   .hero-text { max-width: 550px; }
   .hero-text .tag { color: #a78bfa; font-weight: bold; letter-spacing: 1px; font-size: 0.9em; }
   .hero-text h1 { font-family: Georgia, serif; font-size: 2.6em; margin: 15px 0; }
@@ -92,21 +79,16 @@
   .skill-category { border: 1px solid; border-radius: 16px; padding: 30px; margin-bottom: 24px; background: #0d0d14; }
   .skill-category.c1 { border-color: #7c3aed; box-shadow: 0 0 24px rgba(124,58,237,0.15); }
   .skill-category.c2 { border-color: #2563eb; box-shadow: 0 0 24px rgba(37,99,235,0.15); }
-  .skill-category.c3 { border-color: #2563eb; box-shadow: 0 0 24px rgba(37,99,235,0.15); }
-  .skill-category.c4 { border-color: #0ea5e9; box-shadow: 0 0 24px rgba(14,165,233,0.15); }
+  .skill-category.c3 { border-color: #db2777; box-shadow: 0 0 24px rgba(219,39,119,0.15); }
   .skill-category h3 { text-align: center; font-family: Georgia, serif; font-size: 1.5em; color: #fff; margin-bottom: 20px; }
-  .skill-row { display: flex; align-items: center; gap: 14px; background: #16161f; border: 1px solid #26262f; border-radius: 10px; padding: 14px 18px; margin-bottom: 12px; font-weight: 600; transition: 0.25s; }
-  .skill-row:last-child { margin-bottom: 0; }
-  .skill-row:hover { border-color: #a78bfa; transform: translateX(4px); }
+  .skill-row { display: flex; align-items: center; gap: 14px; background: #16161f; border: 1px solid #26262f; border-radius: 10px; padding: 14px 18px; margin-bottom: 12px; font-weight: 600; }
   .skill-row .s-icon { font-size: 1.3em; width: 24px; text-align: center; }
   .tag-pill { display: inline-block; background: #1b1530; color: #b39ff5; border-radius: 20px; padding: 5px 12px; font-size: 0.85em; margin: 3px 4px 3px 0; font-weight: 600; border: 1px solid #322659; }
 
-  .extra-skills { border: 1px solid #db2777; border-radius: 16px; padding: 30px; background: #0d0d14; box-shadow: 0 0 24px rgba(219,39,119,0.15); }
-  .extra-skills h3 { text-align: center; font-family: Georgia, serif; font-size: 1.5em; color: #fff; margin-bottom: 20px; }
-  .extra-row { display: flex; align-items: center; gap: 14px; background: #16161f; border: 1px solid #26262f; border-radius: 10px; padding: 14px 18px; margin-bottom: 12px; font-weight: 600; transition: 0.25s; }
-  .extra-row:last-child { margin-bottom: 0; }
-  .extra-row:hover { border-color: #f472b6; transform: translateX(4px); }
-  .extra-row .s-icon { font-size: 1.3em; width: 24px; text-align: center; color: #f472b6; }
+  .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
+  .tool-item { display: flex; align-items: center; gap: 12px; border: 1px solid #26262f; border-radius: 10px; padding: 14px 16px; background: #0d0d14; font-weight: 600; font-size: 0.95em; transition: 0.25s; }
+  .tool-item:hover { border-color: #db2777; box-shadow: 0 8px 22px rgba(219,39,119,0.2); transform: translateY(-3px); }
+  .tool-item .t-icon { font-size: 1.3em; width: 22px; text-align: center; color: #f472b6; }
 
   .projects-list { display: flex; flex-direction: column; gap: 26px; }
   .project-card { background: #0d0d14; border: 1px solid #222; border-radius: 16px; padding: 26px; position: relative; transition: 0.25s; }
@@ -167,13 +149,12 @@
 </head>
 <body>
 
+<div class="stars"></div>
 <div class="bg-blobs">
   <div class="blob blob1"></div>
   <div class="blob blob2"></div>
   <div class="blob blob3"></div>
-  <div class="blob blob4"></div>
 </div>
-<div class="stars" id="stars"></div>
 
 <nav>
   <div class="logo gradient-text">MR</div>
@@ -195,6 +176,8 @@
     <p>I'm a Bachelor of Applied Information Technology (BAIT) undergraduate at SLTC Research University, building mobile apps with Flutter and web applications with Laravel and MySQL. I enjoy turning ideas into practical, working software.</p>
     <div class="social-row">
       <a href="Rimas_CV.pdf" target="_blank" class="social-btn primary" onclick="var a=document.createElement('a');a.href='Rimas_CV.pdf';a.download='Mohamed_Rimas_CV.pdf';a.click();"><i class="fa-solid fa-file-arrow-down"></i> View / Download CV</a>
+      <a href="https://github.com/Rimas0711" target="_blank" class="social-btn secondary"><i class="fa-brands fa-github"></i> GitHub</a>
+      <a href="https://www.linkedin.com/in/mohamed-rimas-5486b72a4" target="_blank" class="social-btn secondary"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
     </div>
     <div class="icon-circle-row">
       <a href="https://www.linkedin.com/in/mohamed-rimas-5486b72a4" target="_blank" class="icon-circle" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -221,14 +204,14 @@
   <a href="#projects" class="highlight-card">
     <div class="h-icon"><i class="fa-solid fa-rocket"></i></div>
     <h3>Projects</h3>
-    <p>5 real-world projects</p>
+    <p>6 real-world projects</p>
   </a>
 </div>
 
 <div class="stats-band">
   <div class="stats-grid">
     <div class="stat-item">
-      <div class="stat-num">5+</div>
+      <div class="stat-num">6+</div>
       <div class="stat-label">Projects Completed</div>
     </div>
     <div class="stat-item">
@@ -236,7 +219,7 @@
       <div class="stat-label">Technologies</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">2</div>
+      <div class="stat-num">3</div>
       <div class="stat-label">Live Deployed Sites</div>
     </div>
   </div>
@@ -275,32 +258,29 @@
   </div>
 
   <div class="extra-skills">
-    <h3>Other Skills</h3>
-    <div class="extra-row"><span class="s-icon"><i class="fa-brands fa-java"></i></span> Java</div>
-    <div class="extra-row"><span class="s-icon"><i class="fa-solid fa-database"></i></span> DBMS</div>
-    <div class="extra-row"><span class="s-icon"><i class="fa-solid fa-diagram-project"></i></span> ER Diagrams</div>
-    <div class="extra-row"><span class="s-icon"><i class="fa-solid fa-cubes"></i></span> OOP</div>
-    <div class="extra-row"><span class="s-icon"><i class="fa-solid fa-sitemap"></i></span> Data Structures & Algorithms</div>
-    <div class="extra-row"><span class="s-icon"><i class="fa-solid fa-lightbulb"></i></span> Problem Solving</div>
-    <div class="extra-row"><span class="s-icon"><i class="fa-solid fa-mobile-screen"></i></span> Responsive Web Design</div>
-    <div class="extra-row"><span class="s-icon"><i class="fa-solid fa-plug"></i></span> REST API Integration</div>
+    <span class="tag-pill">Java</span>
+    <span class="tag-pill">DBMS</span>
+    <span class="tag-pill">ER Diagrams</span>
+    <span class="tag-pill">OOP</span>
+    <span class="tag-pill">Data Structures & Algorithms</span>
+    <span class="tag-pill">Problem Solving</span>
+    <span class="tag-pill">Responsive Web Design</span>
+    <span class="tag-pill">REST API Integration</span>
   </div>
 </section>
 
 <section id="tools" class="fade-in">
   <div class="label">MY TOOLKIT</div>
   <h2 class="title">Tools & <span class="gradient-text">Software</span></h2>
-
-  <div class="skill-category c4">
-    <h3>Development Tools</h3>
-    <div class="skill-row"><span class="s-icon"><i class="fa-solid fa-code" style="color:#60a5fa;"></i></span> VS Code</div>
-    <div class="skill-row"><span class="s-icon"><i class="fa-brands fa-android" style="color:#a4c639;"></i></span> Android Studio</div>
-    <div class="skill-row"><span class="s-icon"><i class="fa-brands fa-git-alt" style="color:#f05032;"></i></span> Git</div>
-    <div class="skill-row"><span class="s-icon"><i class="fa-brands fa-github" style="color:#e5e5e5;"></i></span> GitHub</div>
-    <div class="skill-row"><span class="s-icon"><i class="fa-brands fa-figma" style="color:#f472b6;"></i></span> Figma</div>
-    <div class="skill-row"><span class="s-icon"><i class="fa-solid fa-server" style="color:#a78bfa;"></i></span> XAMPP</div>
-    <div class="skill-row"><span class="s-icon"><i class="fa-solid fa-paper-plane" style="color:#ff6c37;"></i></span> Postman</div>
-    <div class="skill-row"><span class="s-icon"><i class="fa-brands fa-github" style="color:#e5e5e5;"></i></span> GitHub Pages</div>
+  <div class="tools-grid">
+    <div class="tool-item"><span class="t-icon"><i class="fa-solid fa-code"></i></span> VS Code</div>
+    <div class="tool-item"><span class="t-icon"><i class="fa-brands fa-android"></i></span> Android Studio</div>
+    <div class="tool-item"><span class="t-icon"><i class="fa-brands fa-git-alt"></i></span> Git</div>
+    <div class="tool-item"><span class="t-icon"><i class="fa-brands fa-github"></i></span> GitHub</div>
+    <div class="tool-item"><span class="t-icon"><i class="fa-brands fa-figma"></i></span> Figma</div>
+    <div class="tool-item"><span class="t-icon"><i class="fa-solid fa-server"></i></span> XAMPP</div>
+    <div class="tool-item"><span class="t-icon"><i class="fa-solid fa-paper-plane"></i></span> Postman</div>
+    <div class="tool-item"><span class="t-icon"><i class="fa-brands fa-github"></i></span> GitHub Pages</div>
   </div>
 </section>
 
@@ -334,6 +314,16 @@
       </div>
       <div class="project-links">
         <a href="https://github.com/Rimas0711/book-shop-erp-system" target="_blank" class="project-link"><i class="fa-brands fa-github"></i> View on GitHub</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <h3>Vulnerability Scanner & SIEM Dashboard</h3>
+      <p>A simulated SOC dashboard with live vulnerability trend charts, patch remediation tracking, severity breakdown, and a real-time threat feed.</p>
+      <span class="tag-pill">HTML5</span><span class="tag-pill">CSS3</span><span class="tag-pill">JavaScript</span>
+      <div class="project-links">
+        <a href="https://rimas0711.github.io/vulnerability-scanner-dashboard" target="_blank" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+        <a href="https://github.com/Rimas0711/vulnerability-scanner-dashboard" target="_blank" class="project-link"><i class="fa-brands fa-github"></i> View on GitHub</a>
       </div>
     </div>
 
@@ -477,19 +467,6 @@ window.addEventListener('scroll', function() {
     scrollBtn.classList.remove('show');
   }
 });
-
-// generate scattered twinkling stars for dark-mode atmosphere
-const starsContainer = document.getElementById('stars');
-const starCount = 60;
-for (let i = 0; i < starCount; i++) {
-  const s = document.createElement('div');
-  s.className = 'star';
-  s.style.left = Math.random() * 100 + 'vw';
-  s.style.top = Math.random() * 100 + 'vh';
-  s.style.animationDelay = (Math.random() * 4) + 's';
-  s.style.animationDuration = (3 + Math.random() * 3) + 's';
-  starsContainer.appendChild(s);
-}
 </script>
 
 </body>
